@@ -1,0 +1,111 @@
+<html>
+<head>
+<!-- Define js scripts here so we can call them later-->
+	<script type="text/javascript" src="GetData.js"></script>
+	<script type="text/javascript" src="GetTime.js"></script>
+	<script type="text/javascript" src="GetDate.js"></script>
+	<script type="text/javascript" src="GetTemperature.js"></script>
+	<script type="text/javascript" src="GetWeather.js"></script>
+	<script type="text/javascript" src="UpdateImage.js"></script>
+	<script type="text/javascript" src="GetLowHi.js"></script>
+	<script type="text/javascript" src="GetDay.js"></script>
+	<script type="text/javascript" src="GetUVIndex.js"></script>
+	<script type="text/javascript" src="GetRainChance.js"></script>
+	<script type="text/javascript" src="GetDailySummary.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="My_Style.css">
+	
+	<title> My Mirror Page </title>	 <!--  Define the parameters for each text block-->
+	
+
+</head>
+
+<body bgcolor="000000"> <!--Background color of black-->
+<!-- Below is to help with spacing and where we define our objects-->
+
+<!--The City is Hardcoded, this is because when we change cities we must update the code
+ anyway to adjust the API call.  This will simply be another reminder to update the code -->
+	<div id='City_Text' class="Letters">
+		<p> Milwaukee, WI </p>
+	</div>
+	
+	<div class="img">
+		<img src="Images/default.png" id = 'Weather_Image' width = '100' height = '100'>
+	</div>
+	
+	<!--Below we create a table in order to help with spacing and allignment on the right-->
+
+	
+	<div>
+		<table style="position:absolute; top: 34px; right: 220px">
+			
+			<thead>
+				<tr>
+					<th>   </th>
+					<th id=Temperature_Text Class= "Letters">Temperature Text</th>
+				</tr>
+			</thead>
+			
+			
+			<tbody>		
+				<tr>	
+					<td> </td>
+					<td id= LowHi_Text Class= "Letters"> LowHi Text </td>
+				</tr>
+			</tbody>
+				
+		</table>
+	</div>
+	
+	<!--Basic defining text-->
+
+	<div id='Day_Text' class = "Letters">
+		<p> Day Text </p>
+	</div>
+	
+	<div id='Date_Text' class = "Letters">
+		<p> Date Text </p>
+	</div>
+	
+	<div id='Time_Text' class = "Letters">
+		<p> Time Text </p>
+	</div>
+	
+	<div id='Weather_Text' class="Letters">
+		<p> Weather Text </p>
+	</div>
+	
+	<div id='Daily_Summary_Text' class="Letters">
+		<p> Daily Summary Text </p>
+	</div>
+	
+	
+	<div id='UV_Index_Text' class = "Letters">
+		<p> UV Index Text </p>
+	</div>
+	
+	<div id='Rain_Chance_Text' class = "Letters">
+		<p> Rain Chance Text </p>
+	</div>
+
+</body>
+		
+		
+<script> //Updates Text fields by calling js functions
+<!--Calling our functions and updating our text-->
+<!-- It is imperative to call to get the Data first to make sure information is up to date-->
+	json = GetData();
+	document.getElementById('Date_Text').innerHTML = GetDate();
+	document.getElementById('Time_Text').innerHTML = GetTime();
+	document.getElementById('Temperature_Text').innerHTML = GetTemperature(json);
+	document.getElementById('Weather_Text').innerHTML = GetWeather(json);
+	document.getElementById('LowHi_Text').innerHTML = GetLowHi(json);
+	document.getElementById('Day_Text').innerHTML = GetDay();
+	document.getElementById('Weather_Image').src = UpdateImage(GetWeather(json), json);
+	document.getElementById('UV_Index_Text').innerHTML = GetUVIndex(json);
+	document.getElementById('Rain_Chance_Text').innerHTML = GetRainChance(json);
+	document.getElementById('Daily_Summary_Text').innerHTML = GetDailySummary(json);
+</script>
+</html>
+
+

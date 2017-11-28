@@ -1,0 +1,73 @@
+/* A generic class for all text on page --> */
+		.Letters { 
+				color:white;
+		}
+			
+	/* Defining specifics ID's for texts */
+			
+			#City_Text{
+				font-size:200%;
+				float: right;
+				vertical-align:top;
+			}
+		
+			#Temperature_Text{
+				font-size:250%;
+				float: right;
+				vertical-align:top;
+				font-weight:normal;
+			}
+			
+			#LowHi_Text{
+				font-size:200%;
+				float: right;
+				vertical-align:top;
+				clear:both;
+			}
+			
+			#Day_Text{
+				font-size:175%;
+			}
+		
+			#Date_Text{
+				font-size:140%;
+			}
+			
+			#Time_Text{
+				font-size: 250%
+			}
+				
+			#Weather_Text{
+				font-size:200%;
+				float:right;
+				clear:both;
+			}
+				
+			#News_Text{
+				font-size: 125%;
+			}
+				
+			#Weather_Image{
+				float: right;
+				width: 150px;
+				clear:both;
+				height: 150px;
+			}
+			
+			#Daily_Summary_Text{
+				float:right;
+				clear:both;
+				font-size:150%
+			}			
+				
+			#UV_Index_Text{
+				float:right;
+				clear:both;
+				font-size:150%
+			}
+				
+			#Rain_Chance_Text{
+				float:right;
+				clear:both;
+				font-size:150%
+			}
